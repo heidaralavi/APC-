@@ -11,4 +11,4 @@ x = mydata.values[:,0:26]
 print(mydata)
 
 # plotting matrix of data
-pd.plotting.scatter_matrix(mydata, c='blue',alpha=0.1, s=25,figsize=[25,25])
+pd.plotting.scatter_matrix(mydata, c='blue',alpha=0.35, s=25,figsize=[26,26])
