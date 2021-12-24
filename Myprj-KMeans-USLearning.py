@@ -3,7 +3,6 @@ By H.Alavi
 """
 import pandas as pd
 import numpy as np
-from sklearn.datasets import load_iris
 from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
 
@@ -17,7 +16,7 @@ print(mydata)
 col=mydata.columns.ravel()
 
 #clustering data
-kmn=KMeans(n_clusters=5)
+kmn=KMeans(n_clusters=4)
 kmn.fit(x)
 labels=kmn.predict(x)
 print(labels)
@@ -25,12 +24,18 @@ print(labels)
 #ploting one sample of data with center of cluster
 center=kmn.cluster_centers_
 
-first=0
-secound=10
-plt.scatter(x[:,first],x[:,secound],c=labels)
-plt.xlabel(col[first])
-plt.ylabel(col[secound])
-plt.scatter(center[:,first],center[:,secound],marker='x',c='red',s=50)
+for jj in range(10,27):
+    plt.figure(figsize=(20,20),dpi=85)
+    for kk in range(10):
+        first=kk
+        secound=jj
+        plt.subplot(4,4,kk+1)
+        plt.scatter(x[:,first],x[:,secound],c=labels)
+        plt.xlabel(col[first])
+        plt.ylabel(col[secound])
+        plt.scatter(center[:,first],center[:,secound],marker='x',c='red',s=50)
+        plt.title(col[secound])
+    plt.show()
 plt.show()
 
 """

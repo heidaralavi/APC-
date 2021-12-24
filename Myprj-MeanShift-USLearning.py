@@ -7,7 +7,7 @@ from sklearn.cluster import MeanShift
 import matplotlib.pyplot as plt
 
 # reading data from excel
-mydata=pd.read_excel('data-feo.xlsx')
+mydata=pd.read_excel('data-norm.xlsx')
 y=mydata.values[:,26]
 x = mydata.values[:,0:27]
 print(mydata)
