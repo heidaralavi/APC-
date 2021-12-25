@@ -1,17 +1,24 @@
 """
 By H.Alavi
 """
+
 import pandas as pd
 import numpy as np
 from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
 
-# reading data from excel
-mydata=pd.read_excel('data-feo.xlsx')
-y=mydata.values[:,26]
-x = mydata.values[:,0:26]
-print(mydata)
 
+# reading data from excel
+mydata=pd.read_excel('data-norm.xlsx')
+y=mydata.values[:,9]
+x = mydata.values[:,0:27]
+print(x)
+'''
+# plotting matrix of data
+plt.figure(figsize=(20,20),dpi=85)
+pd.plotting.scatter_matrix(mydata, c='blue',alpha=0.35, s=55,figsize=[26,26])
+plt.show()
+'''
 #reading header 
 col=mydata.columns.ravel()
 
@@ -29,24 +36,11 @@ for jj in range(10,27):
     for kk in range(10):
         first=kk
         secound=jj
-        plt.subplot(4,4,kk+1)
+        plt.subplot(3,4,kk+1)
         plt.scatter(x[:,first],x[:,secound],c=labels)
         plt.xlabel(col[first])
         plt.ylabel(col[secound])
-        plt.scatter(center[:,first],center[:,secound],marker='x',c='red',s=50)
+        plt.scatter(center[:,first],center[:,secound],marker='x',c='red',s=150)
         plt.title(col[secound])
     plt.show()
-plt.show()
-
-#calculating inertia of cluster 
-inery=[]
-for k in np.arange(1,16):
-    kmn=KMeans(n_clusters=k)
-    kmn.fit(x)
-    inery.append(kmn.inertia_)
-
-#ploting inertia
-plt.plot(np.arange(1,16),inery,'o-')
-plt.xlabel('number of clusters')
-plt.ylabel('inertia')
 plt.show()
