@@ -16,7 +16,7 @@ print(mydata)
 col=mydata.columns.ravel()
 
 #clustering data
-ms=MeanShift(bandwidth=40)
+ms=MeanShift(bandwidth=0.005)
 ms.fit(x)
 labels=ms.labels_
 #labels=ms.predict(x)    #OR
