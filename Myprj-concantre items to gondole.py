@@ -28,9 +28,8 @@ kmn.fit(x)
 labels=kmn.predict(x)
 print(labels)
 
-#ploting one sample of data with center of cluster
+#ploting sample of data with center of cluster
 center=kmn.cluster_centers_
-
 for jj in range(10,27):
     plt.figure(figsize=(20,20),dpi=85)
     for kk in range(10):
@@ -44,3 +43,16 @@ for jj in range(10,27):
         plt.title(col[secound])
     plt.show()
 plt.show()
+
+'''
+#sample Ploting and compair KMeans 
+plt.scatter(x[:,0],x[:,10],c='blue')
+plt.xlabel(col[0])
+plt.ylabel(col[10])
+plt.show()
+plt.scatter(x[:,0],x[:,10],c=labels)
+plt.xlabel(col[0])
+plt.ylabel(col[10])
+plt.scatter(center[:,0],center[:,10],marker='x',c='red',s=150)
+plt.show()
+'''

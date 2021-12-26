@@ -30,7 +30,7 @@ print(labels)
 
 #ploting one sample of data with center of cluster
 center=kmn.cluster_centers_
-
+'''
 for jj in range(10,27):
     plt.figure(figsize=(20,20),dpi=85)
     for kk in range(10):
@@ -44,3 +44,11 @@ for jj in range(10,27):
         plt.title(col[secound])
     plt.show()
 plt.show()
+'''
+
+plt.scatter(x[:,0],x[:,10],c='blue')
+plt.xlabel(col[0])
+plt.ylabel(col[10])
+plt.show()
+
+
